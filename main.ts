@@ -8,6 +8,9 @@ let catchme: game.LedSprite = null
 let sprite: game.LedSprite = null
 sprite = game.createSprite(2, 4)
 let punkte = 0
+let leben = 3
+basic.showString("LEBEN:", 100)
+basic.showNumber(leben)
 basic.forever(function () {
     catchme = game.createSprite(randint(0, 4), 0)
     for (let index = 0; index < 4; index++) {
@@ -18,7 +21,19 @@ basic.forever(function () {
         punkte += 1
         music.playTone(440, music.beat(BeatFraction.Sixteenth))
     } else {
-        basic.pause(500)
+        leben += -1
+        music.playTone(247, music.beat(BeatFraction.Whole))
+        if (leben > 0) {
+            basic.clearScreen()
+            basic.showString("LEBEN:", 100)
+            basic.showNumber(leben)
+            basic.pause(500)
+        } else {
+            while (true) {
+                basic.showString("GAME OVER! PUNKTE:", 100)
+                basic.showNumber(punkte)
+            }
+        }
     }
     catchme.delete()
 })
