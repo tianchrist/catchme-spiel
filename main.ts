@@ -4,12 +4,12 @@ input.onButtonEvent(Button.A, input.buttonEventClick(), function () {
 input.onButtonEvent(Button.B, input.buttonEventClick(), function () {
     sprite.change(LedSpriteProperty.X, 1)
 })
+let punkte = 0
 let catchme: game.LedSprite = null
 let sprite: game.LedSprite = null
 sprite = game.createSprite(2, 4)
-let punkte = 0
 let leben = 3
-basic.showString("LEBEN:", 100)
+basic.showIcon(IconNames.Heart)
 basic.showNumber(leben)
 basic.forever(function () {
     catchme = game.createSprite(randint(0, 4), 0)
@@ -25,7 +25,7 @@ basic.forever(function () {
         music.playTone(247, music.beat(BeatFraction.Whole))
         if (leben > 0) {
             basic.clearScreen()
-            basic.showString("LEBEN:", 100)
+            basic.showIcon(IconNames.Heart)
             basic.showNumber(leben)
             basic.pause(500)
         } else {
