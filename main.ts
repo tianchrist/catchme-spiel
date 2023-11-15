@@ -30,7 +30,8 @@ basic.forever(function () {
             basic.pause(500)
         } else {
             while (true) {
-                basic.showString("GAME OVER! PUNKTE:", 100)
+                basic.showIcon(IconNames.Skull, 800)
+                basic.showString("SCORE:", 100)
                 basic.showNumber(punkte)
             }
         }
